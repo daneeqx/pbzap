@@ -1,0 +1,14 @@
+version: v2
+
+lint:
+  use:
+    - STANDARD
+    - COMMENT_ENUM_VALUE
+  ignore:
+   - api
+  service_suffix: API
+breaking:
+  use:
+    - FILE
+deps:
+  - buf.build/googleapis/googleapis

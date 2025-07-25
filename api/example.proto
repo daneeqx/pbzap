@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package example;
+
+option go_package = "github.com/daneeqx/pbzap/gen/example;example";
+
+import "api/pbzap.proto";
+
+message Example {
+    string name = 1 [(pbzap.mask_type) = MASK_FULL];
+    string email = 2 [(pbzap.mask_type) = MASK_EMAIL];
+    string phone = 3 [(pbzap.mask_type) = MASK_PHONE];
+    string credit_card = 4 [(pbzap.mask_type) = MASK_CREDIT_CARD];
+    string ssn = 5 [(pbzap.mask_type) = MASK_SSN];  
+    string custom_mask = 6 [(pbzap.mask_type) = MASK_CUSTOM, (pbzap.custom_mask_pattern) = "***"];
+
+
+    string debug_field = 9 [(pbzap.log_level) = LOG_DEBUG];
+    string info_field = 10 [(pbzap.log_level) = LOG_INFO];
+    string warn_field = 11 [(pbzap.log_level) = LOG_WARN];
+    string error_field = 12 [(pbzap.log_level) = LOG_ERROR];
+    string custom_name_field = 13 [(pbzap.log_field_name) = "custom_field_name"];
+    string hidden_field = 14 [(pbzap.hide_log_field) = true];
+}
